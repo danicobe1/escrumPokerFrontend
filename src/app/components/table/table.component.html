@@ -1,0 +1,31 @@
+
+<div class="card-container">    
+    <div class="card" >
+        <b> Game:</b>
+        {{game.nameGame}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <b> Task: </b>
+        {{game.task}}   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+        <b> Hosted by:  </b>
+        {{game.username}}
+    </div>
+    <div class="card" >
+   
+        <button (click)="showValues()" *ngIf="game.idUser==idUser">Show!</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="newGame()" *ngIf="game.idUser==idUser">Create New Game!</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!-- <button>Choose other value</button> -->
+    </div>
+    
+    <div class="card" *ngFor="let player of players">        
+        {{player.username}}&nbsp;&nbsp; <span *ngIf="player.show==0"> IS READY!!! </span>
+        <span *ngIf="player.show==1">
+           [Fibo Effort:
+           {{player.value}}] 
+        </span>
+    </div>
+    <div class="card">                        
+        Share with your team!!  :  http://localhost:4200/card/{{idGame}}
+    </div>
+</div>
